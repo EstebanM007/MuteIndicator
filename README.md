@@ -24,6 +24,26 @@ Requiere Windows 10/11 x64. No necesita instalar .NET ni ningun componente adici
 .\MuteIndicator.exe
 ```
 
+### Si Windows bloquea el ejecutable
+
+El ejecutable es portable y no esta firmado digitalmente. Por eso Windows puede mostrar una advertencia o bloquearlo al descargarlo desde Internet.
+
+Si aparece la opcion **Desbloquear**:
+
+1. Haz clic derecho en `MuteIndicator.exe` y selecciona **Propiedades**.
+2. En la pestaña **General**, marca **Desbloquear**.
+3. Pulsa **Aplicar** y ejecuta el archivo otra vez.
+
+Tambien puedes hacerlo desde PowerShell:
+
+```powershell
+Unblock-File -Path ".\MuteIndicator.exe"
+```
+
+Si **Control inteligente de aplicaciones** bloquea el archivo, abre **Seguridad de Windows > Control de aplicaciones y explorador > Control inteligente de aplicaciones** y selecciona **Desactivado**. Esta proteccion puede requerir restablecer o reinstalar Windows para volver a activarse, por lo que solo debes cambiarla si confias en el archivo descargado.
+
+El bloqueo no significa que falte .NET: el ejecutable incluye el runtime necesario y esta compilado para Windows 10/11 x64.
+
 Para iniciar con Windows, presiona `Win + R`, escribe `shell:startup` y copia alli el ejecutable. Tambien puedes hacerlo con PowerShell:
 
 ```powershell
