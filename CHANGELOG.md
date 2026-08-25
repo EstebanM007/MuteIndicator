@@ -5,7 +5,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/es/).
 
-## [1.0.0] - 2026-08-24
+## [1.0.4] - 2026-08-24
 
 ### Added
 - ✅ Indicador visual de micrófono silenciado en esquina inferior derecha
@@ -15,7 +15,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/es/).
 - ✅ Documentación XML completa
 - ✅ Manejo robusto de errores
 - ✅ Aplicación optimizada para gaming
-- ✅ Executable standalone (1.36 MB)
+- ✅ Ejecutable portable (1.36 MB)
 
 ### Features
 - Círculo rojo translúcido indica micrófono silenciado
@@ -34,11 +34,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/es/).
 
 ### Documentation
 - README.md con guía completa
-- QUICKSTART.md para inicio rápido
-- GAMING_EDITION.md con detalles técnicos
-- RELEASE_NOTES.md con historial de cambios
 - Documentación XML en código fuente
-- Ejemplos de uso
 
 ---
 
@@ -62,7 +58,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/es/).
 
 ## Notas de Versión
 
-### v1.0.0 - Gaming Edition
+### v1.0.4 - Gaming Edition
 **Lanzamiento Inicial - Optimizado para Gaming**
 
 Una aplicación ligera y rápida para indicar visualmente el estado del micrófono.
@@ -88,4 +84,4 @@ Si tienes sugerencias para nuevas versiones, por favor:
 ---
 
 **Última actualización**: 2026-08-24
-**Versión actual**: 1.0.0
+**Versión actual**: 1.0.4

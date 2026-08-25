@@ -27,7 +27,7 @@ Por favor, sé respetuoso y profesional. Queremos mantener una comunidad inclusi
 
 1. **Fork el repositorio**
    ```bash
-   git clone https://github.com/EstebanM007/MuteIndicator.git
+git clone https://github.com/EstebanM007/MuteIndicator.git
    ```
 
 2. **Crea una rama para tu feature**
@@ -81,11 +81,10 @@ Por favor, sé respetuoso y profesional. Queremos mantener una comunidad inclusi
 ### Setup Inicial
 ```bash
 # Clonar repositorio
-git clone https://github.com/tu-usuario/MuteIndicator.git
+   git clone https://github.com/EstebanM007/MuteIndicator.git
 cd MuteIndicator
 
 # Restaurar dependencias
-cd MuteIndicator
 dotnet restore
 ```
 
