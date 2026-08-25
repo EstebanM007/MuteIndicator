@@ -42,9 +42,9 @@ Por favor, sé respetuoso y profesional. Queremos mantener una comunidad inclusi
 
 4. **Compila y prueba**
    ```bash
-   cd MuteIndicatorCSharp
-   dotnet build -c Release
-   dotnet publish -c Release -o publish
+   cd MuteIndicator
+   dotnet build MuteIndicatorCSharp.csproj -c Release
+   dotnet publish MuteIndicatorCSharp.csproj -c Release -o publish
    ```
 
 5. **Haz commit de tus cambios**
@@ -85,7 +85,7 @@ git clone https://github.com/tu-usuario/MuteIndicator.git
 cd MuteIndicator
 
 # Restaurar dependencias
-cd MuteIndicatorCSharp
+cd MuteIndicator
 dotnet restore
 ```
 

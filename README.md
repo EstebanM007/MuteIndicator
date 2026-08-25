@@ -48,8 +48,8 @@ Necesitas el SDK de .NET 8 y Windows. Para compilar desde el codigo fuente:
 ```powershell
 git clone https://github.com/EstebanM007/MuteIndicator.git
 cd MuteIndicator
-dotnet build MuteIndicatorCSharp/MuteIndicatorCSharp.csproj -c Release
-dotnet publish MuteIndicatorCSharp/MuteIndicatorCSharp.csproj -c Release -o publish
+dotnet build MuteIndicatorCSharp.csproj -c Release
+dotnet publish MuteIndicatorCSharp.csproj -c Release -o publish
 .\publish\MuteIndicator.exe
 ```
 
