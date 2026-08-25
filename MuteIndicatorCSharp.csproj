@@ -23,7 +23,7 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     
     <!-- Para crear ejecutable autocontenido -->
-    <SelfContained>false</SelfContained>
+    <SelfContained>true</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>

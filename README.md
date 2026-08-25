@@ -18,7 +18,7 @@ Aplicacion Windows ligera que muestra un indicador visual cuando el microfono es
 
 Descarga `MuteIndicator.exe` desde la [ultima release](https://github.com/EstebanM007/MuteIndicator/releases/latest) y ejecutalo.
 
-Requiere Windows 10/11 y [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0/runtime). No necesita instalacion: el ejecutable es portable.
+Requiere Windows 10/11 x64. No necesita instalar .NET ni ningun componente adicional: el ejecutable es portable.
 
 ```powershell
 .\MuteIndicator.exe
@@ -37,9 +37,9 @@ Copy-Item $source $dest
 | Metrica | Valor |
 |---------|-------|
 | Sistema | Windows 10/11 x64 |
-| Runtime | .NET 8 Desktop Runtime |
+| Runtime | Incluido en el ejecutable |
 | Intervalo de comprobacion | 100 ms |
-| Tamano del ejecutable | aproximadamente 1.4 MB |
+| Tamano del ejecutable | aproximadamente 171 MB |
 
 ## Desarrollo
 
