@@ -12,66 +12,50 @@ Aplicacion Windows ligera que muestra un indicador visual cuando el microfono es
 - Actualizacion del estado aproximadamente cada 100 ms.
 - Ventana transparente a los clics y siempre visible.
 - Menu en la bandeja del sistema para mostrar, ocultar o salir.
-- Ejecutable de un solo archivo para Windows x64.
-
-## Descarga y uso
-
-Descarga `MuteIndicator.exe` desde la [ultima release](https://github.com/EstebanM007/MuteIndicator/releases/latest) y ejecutalo.
-
-Requiere Windows 10/11 x64. No necesita instalar .NET ni ningun componente adicional: el ejecutable es portable.
-
-```powershell
-.\MuteIndicator.exe
-```
-
-### Si Windows bloquea el ejecutable
-
-El ejecutable es portable y no esta firmado digitalmente. Por eso Windows puede mostrar una advertencia o bloquearlo al descargarlo desde Internet.
-
-Si aparece la opcion **Desbloquear**:
-
-1. Haz clic derecho en `MuteIndicator.exe` y selecciona **Propiedades**.
-2. En la pestaña **General**, marca **Desbloquear**.
-3. Pulsa **Aplicar** y ejecuta el archivo otra vez.
-
-Tambien puedes hacerlo desde PowerShell:
-
-```powershell
-Unblock-File -Path ".\MuteIndicator.exe"
-```
-
-Si **Control inteligente de aplicaciones** bloquea el archivo, abre **Seguridad de Windows > Control de aplicaciones y explorador > Control inteligente de aplicaciones** y selecciona **Desactivado**. Esta proteccion puede requerir restablecer o reinstalar Windows para volver a activarse, por lo que solo debes cambiarla si confias en el archivo descargado.
-
-El bloqueo no significa que falte .NET: el ejecutable incluye el runtime necesario y esta compilado para Windows 10/11 x64.
-
-Para iniciar con Windows, presiona `Win + R`, escribe `shell:startup` y copia alli el ejecutable. Tambien puedes hacerlo con PowerShell:
-
-```powershell
-$source = "ruta\a\MuteIndicator.exe"
-$dest = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\"
-Copy-Item $source $dest
-```
+- Codigo fuente C# para Windows Forms y .NET 8.
 
 ## Requisitos
 
-| Metrica | Valor |
-|---------|-------|
-| Sistema | Windows 10/11 x64 |
-| Runtime | Incluido en el ejecutable |
-| Intervalo de comprobacion | 100 ms |
-| Tamano del ejecutable | aproximadamente 171 MB |
+Necesitas Windows 10/11 x64 y el [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0/runtime). Para compilar necesitas el [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
 
-## Desarrollo
+Instala el **Desktop Runtime** para ejecutar la aplicacion. Instala tambien el **SDK** si quieres compilarla.
 
-Necesitas el SDK de .NET 8 y Windows. Para compilar desde el codigo fuente:
+## Ejecutar desde el codigo
+
+Clona el repositorio, entra en la carpeta y ejecuta:
 
 ```powershell
 git clone https://github.com/EstebanM007/MuteIndicator.git
 cd MuteIndicator
-dotnet build MuteIndicatorCSharp.csproj -c Release
-dotnet publish MuteIndicatorCSharp.csproj -c Release -o publish
-.\publish\MuteIndicator.exe
+dotnet restore
+dotnet run -c Release
 ```
+
+La aplicacion se muestra en la esquina inferior derecha y queda disponible en la bandeja del sistema.
+
+## Crear tu propio ejecutable
+
+Con el SDK de .NET 8 instalado, ejecuta:
+
+```powershell
+dotnet publish MuteIndicatorCSharp.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o publish
+```
+
+Encontraras tu ejecutable en `publish\MuteIndicator.exe`. Para ejecutarlo:
+
+```powershell
+\.\publish\MuteIndicator.exe
+```
+
+Este ejecutable utiliza el **.NET 8 Desktop Runtime** instalado en el equipo. Si Windows bloquea un ejecutable generado localmente, usa el codigo que tu mismo compilaste y revisa la configuracion de seguridad de tu equipo; este repositorio no distribuye ejecutables firmados.
+
+Para iniciar tu ejecutable con Windows, presiona `Win + R`, escribe `shell:startup` y copia alli un acceso directo a `publish\MuteIndicator.exe`.
+
+| Metrica | Valor |
+|---------|-------|
+| Sistema | Windows 10/11 x64 |
+| Runtime | .NET 8 Desktop Runtime |
+| Intervalo de comprobacion | 100 ms |
 
 El proyecto usa [NAudio](https://github.com/naudio/NAudio) para consultar el dispositivo de audio predeterminado.
 

@@ -22,8 +22,8 @@
     <ReadyToRun>true</ReadyToRun>
     <PublishReadyToRun>true</PublishReadyToRun>
     
-    <!-- Para crear ejecutable autocontenido -->
-    <SelfContained>true</SelfContained>
+    <!-- El usuario instala el runtime de .NET por separado -->
+    <SelfContained>false</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
