@@ -1,9 +1,9 @@
 # MuteIndicator 🎤
 
-[![Build and Release](https://github.com/tu-usuario/MuteIndicator/workflows/Build%20and%20Release/badge.svg)](https://github.com/tu-usuario/MuteIndicator/actions)
+[![Build and Release](https://github.com/EstebanM007/MuteIndicator/workflows/Build%20and%20Release/badge.svg)](https://github.com/EstebanM007/MuteIndicator/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Release](https://img.shields.io/github/v/release/tu-usuario/MuteIndicator)](https://github.com/tu-usuario/MuteIndicator/releases)
-[![Downloads](https://img.shields.io/github/downloads/tu-usuario/MuteIndicator/total.svg)](https://github.com/tu-usuario/MuteIndicator/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/EstebanM007/MuteIndicator)](https://github.com/EstebanM007/MuteIndicator/releases)
+[![Downloads](https://img.shields.io/github/downloads/EstebanM007/MuteIndicator/total.svg)](https://github.com/EstebanM007/MuteIndicator/releases)
 
 Una aplicación Windows ligera y rápida que muestra un indicador visual en tiempo real cuando el micrófono está silenciado.
 
@@ -22,7 +22,7 @@ Una aplicación Windows ligera y rápida que muestra un indicador visual en tiem
 ## 🚀 Inicio Rápido
 
 ### Descarga
-1. Ve a [Releases](https://github.com/tu-usuario/MuteIndicator/releases)
+1. Ve a [Releases](https://github.com/EstebanM007/MuteIndicator/releases)
 2. Descarga `MuteIndicator.exe`
 3. ¡Listo! Ejecuta y disfruta
 
@@ -148,7 +148,7 @@ Indicador permanente para saber si estás en mute durante reuniones Zoom, Teams,
 
 ¿Encontraste un bug? ¡Nos gustaría saberlo!
 
-1. Abre un [Issue](https://github.com/tu-usuario/MuteIndicator/issues)
+1. Abre un [Issue](https://github.com/EstebanM007/MuteIndicator/issues)
 2. Incluye:
    - Descripción clara del problema
    - Pasos para reproducir
@@ -159,7 +159,7 @@ Indicador permanente para saber si estás en mute durante reuniones Zoom, Teams,
 
 ¿Tienes una idea para mejorar MuteIndicator?
 
-1. Abre un [Issue](https://github.com/tu-usuario/MuteIndicator/issues) con tag `enhancement`
+1. Abre un [Issue](https://github.com/EstebanM007/MuteIndicator/issues) con tag `enhancement`
 2. Describe tu idea
 3. Explica el caso de uso
 4. ¡Únete a la comunidad!
@@ -195,10 +195,10 @@ Este proyecto está bajo la licencia [MIT](LICENSE) - ver archivo LICENSE para d
 
 ## 📊 Estadísticas del Proyecto
 
-![GitHub Stars](https://img.shields.io/github/stars/tu-usuario/MuteIndicator?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/tu-usuario/MuteIndicator?style=social)
-![GitHub Issues](https://img.shields.io/github/issues/tu-usuario/MuteIndicator)
-![GitHub PRs](https://img.shields.io/github/issues-pr/tu-usuario/MuteIndicator)
+![GitHub Stars](https://img.shields.io/github/stars/EstebanM007/MuteIndicator?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/EstebanM007/MuteIndicator?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/EstebanM007/MuteIndicator)
+![GitHub PRs](https://img.shields.io/github/issues-pr/EstebanM007/MuteIndicator)
 
 ---
 

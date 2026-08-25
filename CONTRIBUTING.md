@@ -8,7 +8,7 @@ Por favor, sé respetuoso y profesional. Queremos mantener una comunidad inclusi
 
 ## Cómo Reportar Bugs
 
-1. Verifica que el bug no haya sido reportado ya en [Issues](https://github.com/tu-usuario/MuteIndicator/issues)
+1. Verifica que el bug no haya sido reportado ya en [Issues](https://github.com/EstebanM007/MuteIndicator/issues)
 2. Si no existe, abre un nuevo Issue con:
    - Descripción clara del problema
    - Pasos para reproducir
@@ -27,7 +27,7 @@ Por favor, sé respetuoso y profesional. Queremos mantener una comunidad inclusi
 
 1. **Fork el repositorio**
    ```bash
-   git clone https://github.com/tu-usuario/MuteIndicator.git
+   git clone https://github.com/EstebanM007/MuteIndicator.git
    ```
 
 2. **Crea una rama para tu feature**
