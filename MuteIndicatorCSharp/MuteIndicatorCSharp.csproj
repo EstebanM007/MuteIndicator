@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Configuracion basica del proyecto -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+    <!-- Informacion de la aplicacion -->
+    <AssemblyName>MuteIndicator</AssemblyName>
+    <RootNamespace>MuteIndicatorCSharp</RootNamespace>
+    <Product>Mute Indicator</Product>
+    <Description>Aplicacion que muestra un indicador visual cuando el microfono esta silenciado</Description>
+    <Authors>Developer</Authors>
+    <Version>1.0.0</Version>
+    
+    <!-- Optimizaciones para gaming -->
+    <WarningLevel>4</WarningLevel>
+    <TieredCompilation>true</TieredCompilation>
+    <TieredCompilationQuickJit>true</TieredCompilationQuickJit>
+    <ReadyToRun>true</ReadyToRun>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    
+    <!-- Para crear ejecutable autocontenido -->
+    <SelfContained>false</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Dependencias de la aplicacion -->
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+</Project>
