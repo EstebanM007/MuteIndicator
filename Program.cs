@@ -10,6 +10,8 @@ namespace MuteIndicatorCSharp;
 /// </summary>
 internal static class Program
 {
+    private const string SingleInstanceMutexName = "Global\\IconMuteSingleInstance";
+
     /// <summary>
     /// Punto de entrada principal de la aplicacion.
     /// Se configura como STAThread (Single Threaded Apartment) como es requerido para Windows Forms.
@@ -17,6 +19,13 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
+        using var mutex = new Mutex(true, SingleInstanceMutexName, out var createdNew);
+
+        if (!createdNew)
+        {
+            return;
+        }
+
         try
         {
             // Inicializar configuracion de la aplicacion Windows Forms

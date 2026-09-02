@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using NAudio.CoreAudioApi;
 
@@ -12,6 +13,24 @@ namespace MuteIndicatorCSharp;
 /// </summary>
 internal sealed class IndicatorForm : Form
 {
+    private const int HotkeyId = 1;
+    private bool hotkeyRegistered;
+
+    [Flags]
+    private enum KeyModifiers : uint
+    {
+        Alt = 0x0001,
+        Control = 0x0002,
+        Shift = 0x0004,
+        Win = 0x0008
+    }
+
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
     /// <summary>Temporizador para verificar periódicamente el estado del micrófono.</summary>
     private readonly System.Windows.Forms.Timer timer;
     
@@ -64,10 +83,10 @@ internal sealed class IndicatorForm : Form
         trayMenu.Items.Add(new ToolStripSeparator());
         trayMenu.Items.Add("Salir", null, (_, _) => Application.Exit());
 
-        // Configurar ícono en la bandeja del sistema
+        // Configurar ícono en la bandeja del sistema con el icono personalizado del ejecutable
         trayIcon = new NotifyIcon
         {
-            Icon = SystemIcons.Information,
+            Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath) ?? SystemIcons.Information,
             Text = "Indicador de mute",
             ContextMenuStrip = trayMenu,
             Visible = true
@@ -88,6 +107,9 @@ internal sealed class IndicatorForm : Form
         timer = new System.Windows.Forms.Timer { Interval = CheckIntervalMs };
         timer.Tick += (_, _) => CheckMicrophone();
         timer.Start();
+
+        // Registrar acceso directo global Alt + M para mutear o desmutear el micrófono
+        RegisterHotKeyIfNeeded();
         
         // Realizar verificación inicial del estado del micrófono
         CheckMicrophone();
@@ -97,6 +119,48 @@ internal sealed class IndicatorForm : Form
     /// Evita que la ventana sea activada cuando se muestra, permitiendo que otros elementos mantengan el foco.
     /// </summary>
     protected override bool ShowWithoutActivation => true;
+
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+        RegisterHotKeyIfNeeded();
+    }
+
+    protected override void WndProc(ref Message m)
+    {
+        if (m.Msg == 0x0312 && (int)m.WParam == HotkeyId)
+        {
+            ToggleMicrophoneMute();
+            return;
+        }
+
+        base.WndProc(ref m);
+    }
+
+    private void RegisterHotKeyIfNeeded()
+    {
+        if (IsHandleCreated && !hotkeyRegistered)
+        {
+            hotkeyRegistered = RegisterHotKey(Handle, HotkeyId, (uint)KeyModifiers.Alt, (uint)Keys.M);
+        }
+    }
+
+    private void ToggleMicrophoneMute()
+    {
+        try
+        {
+            cachedMicrophone ??= enumerator?.GetDefaultAudioEndpoint(DataFlow.Capture, Role.Console);
+            var volume = cachedMicrophone?.AudioEndpointVolume;
+            if (volume != null)
+            {
+                volume.Mute = !volume.Mute;
+            }
+        }
+        catch
+        {
+            cachedMicrophone = null;
+        }
+    }
 
     /// <summary>
     /// Configura parámetros de creación de ventana para hacerla transparente a clics y una ventana de herramienta.
@@ -191,6 +255,12 @@ internal sealed class IndicatorForm : Form
     {
         if (disposing)
         {
+            if (IsHandleCreated && hotkeyRegistered)
+            {
+                UnregisterHotKey(Handle, HotkeyId);
+                hotkeyRegistered = false;
+            }
+
             // Liberar recursos gestionados
             timer?.Dispose();              // Detener y liberar el temporizador
             trayIcon?.Dispose();           // Liberar el ícono de la bandeja

@@ -12,6 +12,8 @@ Aplicacion Windows ligera que muestra un indicador visual cuando el microfono es
 - Actualizacion del estado aproximadamente cada 100 ms.
 - Ventana transparente a los clics y siempre visible.
 - Menu en la bandeja del sistema para mostrar, ocultar o salir.
+- Atajo global de teclado: Alt + M para mutear o desmutear el microfono sin sacar foco del juego o la reunion.
+- Funcionamiento discreto en segundo plano, pensado para reuniones, streaming y gaming.
 - Codigo fuente C# para Windows Forms y .NET 8.
 
 ## Requisitos
@@ -33,6 +35,13 @@ dotnet run -c Release
 
 La aplicacion se muestra en la esquina inferior derecha y queda disponible en la bandeja del sistema.
 
+### Uso rapido en segundo plano
+
+- Mantiene el programa ejecutandose en la bandeja del sistema.
+- El indicador aparece solo cuando el microfono queda silenciado.
+- Puedes pulsar Alt + M desde cualquier aplicacion para alternar el estado del microfono sin perder el foco.
+- Es util para reuniones, videollamadas, juegos y streaming.
+
 ## Crear tu propio ejecutable
 
 Con el SDK de .NET 8 instalado, ejecuta:
@@ -41,7 +50,7 @@ Con el SDK de .NET 8 instalado, ejecuta:
 dotnet publish MuteIndicatorCSharp.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o publish
 ```
 
-Encontraras tu ejecutable en `publish\MuteIndicator.exe`. Para ejecutarlo:
+El ejecutable generado usa el icono `BotonR.ico` y se genera como `publish\MuteIndicator.exe`. Si quieres usar el nombre final del proyecto, puedes renombrarlo a `IconMute.exe` para dejarlo más claro. Para ejecutarlo:
 
 ```powershell
 \.\publish\MuteIndicator.exe

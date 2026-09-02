@@ -8,12 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     
     <!-- Informacion de la aplicacion -->
-    <AssemblyName>MuteIndicator</AssemblyName>
-    <RootNamespace>MuteIndicatorCSharp</RootNamespace>
-    <Product>Mute Indicator</Product>
+    <AssemblyName>IconMute</AssemblyName>
+    <RootNamespace>IconMute</RootNamespace>
+    <Product>IconMute</Product>
     <Description>Aplicacion que muestra un indicador visual cuando el microfono esta silenciado</Description>
     <Authors>Developer</Authors>
-    <Version>1.0.5</Version>
+    <Version>1.0.7</Version>
+    <ApplicationIcon>BotonR.ico</ApplicationIcon>
     
     <!-- Optimizaciones para gaming -->
     <WarningLevel>4</WarningLevel>
